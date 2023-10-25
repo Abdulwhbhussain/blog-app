@@ -32,6 +32,27 @@ RSpec.describe User, type: :model do
     it 'Returns empty if the user has no posts' do
       expect(subject.recent_3_posts).to eq([])
     end
-  end
 
+    it 'Returns 3 posts if the user has 3 posts recently' do
+      first_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      second_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      third_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      expect(subject.recent_3_posts).to eq([third_post, second_post, first_post])
+    end
+
+    it 'Returns 3 posts if the user has 5 posts recently' do
+      first_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      second_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      third_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      fourth_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      fifth_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      expect(subject.recent_3_posts.size).to eq(3)
+    end
+
+    it 'Returns 2 posts if the user has 2 posts recently' do
+      first_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      second_post = subject.posts.create(title: 'Hello', text: 'This is my first post')
+      expect(subject.recent_3_posts).to eq([second_post, first_post])
+    end
+  end
 end

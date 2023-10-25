@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  subject { described_class.new(title: 'Hello world', text: 'This is my first post') }
+  let(:first_user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
+  subject { described_class.new(author: first_user, title: 'Hello world', text: 'This is my first post' ) }
 
   before { subject.save }
 
@@ -9,22 +10,6 @@ RSpec.describe Post, type: :model do
   describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
-    end
-
-    it 'validates the presence of title' do
-      expect(subject).to validate_presence_of(:title)
-    end
-
-    it 'validates the presence of text' do
-      expect(subject).to validate_presence_of(:text)
-    end
-
-    it 'validates the presence of comments_counter' do
-      expect(subject).to eq(0)
-    end
-
-    it 'validates the presence of likes_counter' do
-      expect(subject).to eq(0)
     end
 
     it 'is not valid without a title' do
