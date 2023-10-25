@@ -2,6 +2,8 @@ class Like < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
+  validates :user_id, uniqueness: { scope: :post_id, message: 'user can only like a post once' }
+
   after_create :increment_no_of_likes
 
   private
