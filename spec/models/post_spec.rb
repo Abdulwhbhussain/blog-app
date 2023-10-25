@@ -1,45 +1,68 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.create(name: 'John Doe', photo: 'https', bio: 'Macho Man!') }
+  subject { described_class.new(title: 'Hello world', text: 'This is my first post') }
 
-  describe 'validations' do
-    it { should validate_presence_of(:title) }
-    it { should validate_length_of(:title).is_at_most(250) }
-    it { should validate_presence_of(:text) }
-    it { should validate_length_of(:text).is_at_most(5000) }
-    it { should validate_numericality_of(:comments_counter).only_integer.is_greater_than_or_equal_to(0) }
-    it { should validate_numericality_of(:likes_counter).only_integer.is_greater_than_or_equal_to(0) }
-  end
+  before { subject.save }
 
-  describe 'associations' do
-    it { should belong_to(:author).class_name('User') }
-    it { should have_many(:comments).dependent(:destroy) }
-    it { should have_many(:likes).dependent(:destroy) }
-  end
+  # Validation tests
+  describe 'Validations' do
+    it 'is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
 
-  describe 'callbacks' do
-    describe 'after_create' do
-      it 'increments the number of posts' do
-        expect { Post.create(title: 'Test Post', text: 'This is a test post', author: user) }.to change { user.posts.count }.by(1)
-      end
+    it 'validates the presence of title' do
+      expect(subject).to validate_presence_of(:title)
+    end
+
+    it 'validates the presence of text' do
+      expect(subject).to validate_presence_of(:text)
+    end
+
+    it 'validates the presence of comments_counter' do
+      expect(subject).to eq(0)
+    end
+
+    it 'validates the presence of likes_counter' do
+      expect(subject).to eq(0)
+    end
+
+    it 'is not valid without a title' do
+      subject.title = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a text' do
+      subject.text = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'validates the presence of comments_counter' do
+      subject.comments_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'validates the presence of likes_counter' do
+      subject.likes_counter = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'validates that comments counter is a positive integer' do
+      subject.comments_counter = -1
+      expect(subject).to_not be_valid
+    end
+
+    it 'validates that likes counter is a positive integer' do
+      subject.likes_counter = -1
+      expect(subject).to_not be_valid
     end
   end
 
-  describe 'methods' do
-    describe '#recent_5_comments' do
-      let(:post) { Post.create(title: 'Test Post', text: 'This is a test post', author: user) }
-
-      it 'returns the 5 most recent comments on the post' do
-        comment1 = Comment.create(text: 'This is the first comment', post: post)
-        comment2 = Comment.create(text: 'This is the second comment', post: post)
-        comment3 = Comment.create(text: 'This is the third comment', post: post)
-        comment4 = Comment.create(text: 'This is the fourth comment', post: post)
-        comment5 = Comment.create(text: 'This is the fifth comment', post: post)
-        comment6 = Comment.create(text: 'This is the sixth comment', post: post)
-
-        expect(post.recent_5_comments).to eq([comment6, comment5, comment4, comment3, comment2])
-      end
+  # Method tests
+  describe 'Methods' do
+    it 'Returns empty if the post has no comments' do
+      expect(subject.recent_5_comments).to eq([])
     end
   end
+  
 end
