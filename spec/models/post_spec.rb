@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   let(:first_user) { User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.') }
-  subject { described_class.new(author: first_user, title: 'Hello world', text: 'This is my first post' ) }
+  subject { described_class.new(author: first_user, title: 'Hello world', text: 'This is my first post') }
 
   before { subject.save }
 
@@ -49,5 +49,4 @@ RSpec.describe Post, type: :model do
       expect(subject.recent_5_comments).to eq([])
     end
   end
-  
 end
