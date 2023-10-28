@@ -1,8 +1,39 @@
-<h1>Here is a list of posts for a given user: </h1>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post%></li>
-    <li><%= link_to post.title, user_post_path(post.author, post) %></li>
-    <li><%= post.text %></li>
+<div class="user_container">
+  <div class="user_image">
+    <%= image_tag @posts[0].author.photo %>
+  </div>
+  <div class="user_content">
+    <h1><%= @posts[0].author.name %></h1>
+    <p>Number of posts: <%= @posts[0].author.posts_counter %></p>
+  </div>
+</div>
+
+<% if @posts.empty? %> 
+  <p>There are no posts by this user.</p>
+<% else %>
+<h2>Here are the posts by this user: </h2>
+<div>
+<% @posts.each_with_index do |post, index| %>
+  <div class="post_container">
+  <div><%= link_to "Post ##{index + 1}", user_post_path(post.author, post) %></div>
+  <div><%= post.text %></div>
+  <div>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></div>
+  </div>
+  <div class="comments_container">
+  <% if post.recent_5_comments == [] %> 
+    <p>There are no comments for this post.</p>
+  <% else %>
+  <div>
+  <% post.recent_5_comments.each do |comment| %>
+    <div class="comment_container">
+    <div><%= post.author.name %>: <%= comment.text %></div>
+    </div>
   <% end %>
-</ul>
+  </div>
+  <% end %>
+  </div>
+<% end %>
+</div>
+<% end %>
+
+<button><%= link_to "Pagination", user_posts_path(@posts) %></button>

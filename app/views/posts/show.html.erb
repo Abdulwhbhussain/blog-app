@@ -1,4 +1,20 @@
 <h1>Here is a Given post for a given user: </h1>
-<p>Title: <%= @post.title %></p>
-<p>Content: <%= @post.text %></p>
-<p>Author: <%= @post.author.name %></p>
+
+<div class="post_container">
+  <div><%= link_to "Post ##{1} by #{@post.author.name}", user_post_path(@post.author, @post) %></div>
+  <div>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></div>
+  <div><%= @post.text %></div>
+  </div>
+  <div class="comments_container">
+  <% if @post.comments == [] %> 
+    <p>There are no comments for this post.</p>
+  <% else %>
+  <div>
+  <% @post.comments.each do |comment| %>
+    <div class="comment_container">
+    <div><%= @post.author.name %>: <%= comment.text %></div>
+    </div>
+  <% end %>
+  </div>
+  <% end %>
+</div>
