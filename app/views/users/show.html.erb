@@ -1,1 +1,12 @@
-<h1>Here is a given user</h1>
+<h1>Here is a given user: </h1>
+<p>Name: <%= @user.name %></p>
+<p>Bio: <%= @user.bio %></p>
+
+<h2>Here are the posts by this user: </h2>
+<ul>
+  <% @user.posts.each do |post| %>
+    <li><%= link_to post.title, user_post_path(@user, post) %></li>
+  <% end %>
+</ul>
+
+<button><%= link_to "All Posts", user_posts_path(@user) %></button>
