@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id]
-      @user = User.find(params[:id])
-    else
-      @user = User.find(params[:user_id])
-    end
+    @user = User.find(params[:id] || params[:user_id])
   end
 end
