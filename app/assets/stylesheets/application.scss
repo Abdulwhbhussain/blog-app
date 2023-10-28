@@ -26,7 +26,7 @@ body {
   color: #333;
   padding-left: 5%;
   padding-right: 5%;
-  border: 2px solid green;
+  // border: 2px solid green;
 
   ul {
     list-style: none;
@@ -34,21 +34,74 @@ body {
 
   .user_container {
     margin-top: 20px;
-    border: 2px solid red;
+    // border: 2px solid red;
     display: flex;
     flex-direction: row;
+    .user_image {
+      border: 2px solid black;
+      width: 200px;
+      height: 200px;
+      margin-right: 50px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .user_content {
+      border: 2px solid black;
+      margin-left: 30px;
+      width: 75%;
+      height: 200px;
+      padding: 30px 5%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      div {
+        // border: 2px solid black;
+        width: 45%;
+      }
+
+      .number_of_posts {
+        position: relative;
+        top: 60%;
+        // border: 2px solid yellowgreen;
+        padding-left: 50%;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .bio_container {
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
   }
 
   .post_container {
     margin-top: 20px;
-    border: 2px solid red;
+    border: 2px solid black;
+    padding: 10px 20px;
+    .comments_likes {
+      padding-left: 85%;
+    }
+  }
+
+  .see_posts_container {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
 
   .comments_container {
     border: 2px solid red;
     display: flex;
     flex-direction: row;
+  }
+
+  .footer_space {
+    margin-top: 20px;
+
   }
 }
