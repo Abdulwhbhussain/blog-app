@@ -1,8 +1,6 @@
-<h1>Here is a Given post for a given user: </h1>
-
 <div class="post_container">
   <div><%= link_to "Post ##{1} by #{@post.author.name}", user_post_path(@post.author, @post) %></div>
-  <div>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></div>
+  <div class="comments_likes">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></div>
   <div><%= @post.text %></div>
   </div>
   <div class="comments_container">

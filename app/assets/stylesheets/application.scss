@@ -99,9 +99,14 @@ body {
   }
 
   .comments_container {
-    border: 2px solid red;
+    border: 2px solid black;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
   }
 
   .footer_space {
