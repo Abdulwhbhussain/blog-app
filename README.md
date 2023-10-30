@@ -12,8 +12,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
-  - [💻 Getting Started ](#-getting-started-)
+  - [� Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Clone Repo](#clone-repo)
     - [Create database.yml file](#create-databaseyml-file)
@@ -68,16 +67,6 @@ This project is a simple Blog app. The main features are:
 - **_Post creation:_** Author can create new posts with a title and text content.
 - **_Post management:_** Author can view, edit, and delete their own posts.
 - **_Commenting and Liking:_** Users can add comments and likes to posts.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-<!-- - [Live Demo Link]() -->
-
-Currently no active link available.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
