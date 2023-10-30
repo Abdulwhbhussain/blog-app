@@ -12,7 +12,7 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [� Getting Started ](#-getting-started-)
+  - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Clone Repo](#clone-repo)
     - [Create database.yml file](#create-databaseyml-file)
@@ -174,7 +174,7 @@ For testing you can run:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../../issues/).
+Feel free to check the [issues page](https://github.com/Abdulwhbhussain/blog-app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
