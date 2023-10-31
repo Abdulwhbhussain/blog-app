@@ -2,12 +2,10 @@ class CommentsController < ApplicationController
   def create
     @user = current_user
     @post = Post.find(params[:post_id])
-    @comment = Comment.new(post_id: @post.id, user_id: @user.id, text: comment_params[:text])
+    @comment = @user.comments.new(post_id: @post.id, text: comment_params[:text])
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to request.referer }
-      end
+      format.html { redirect_to request.referer } if @comment.save
     end
   end
 

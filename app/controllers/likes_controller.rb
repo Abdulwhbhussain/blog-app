@@ -5,9 +5,7 @@ class LikesController < ApplicationController
     @like = Like.new(post_id: @post.id, user_id: @user.id)
 
     respond_to do |format|
-      if @like.save
-        format.html { redirect_to request.referer }
-      end
+      format.html { redirect_to request.referer } if @like.save
     end
   end
 
