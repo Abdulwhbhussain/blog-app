@@ -90,6 +90,14 @@ body {
     }
   }
 
+  .new_post_container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 10px;
+  }
+
   .see_posts_container {
     margin-top: 20px;
     display: flex;

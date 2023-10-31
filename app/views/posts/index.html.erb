@@ -15,6 +15,10 @@
     </div>
 <br>
 
+<div class="new_post_container">
+<button><%= link_to "Add New Post", new_user_post_url %></button>
+</div>
+
 <% if @posts.empty? %> 
   <div class="post_container">There are no posts by this user.</div>
 <% else %>
