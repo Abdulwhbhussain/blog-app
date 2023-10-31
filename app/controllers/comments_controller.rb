@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  
   def new
     @user = current_user
     @post = Post.find(params[:post_id])
@@ -15,7 +14,9 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to user_post_path(@post.author, @post), notice: 'Comment was successfully created.' }
       else
-        format.html { render :new, status: :unprocessable_entity, locals: { user: @user, post: @post, comment: @comment } }
+        format.html do
+          render :new, status: :unprocessable_entity, locals: { user: @user, post: @post, comment: @comment }
+        end
       end
     end
   end
