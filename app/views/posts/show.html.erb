@@ -15,4 +15,28 @@
   <% end %>
   </div>
   <% end %>
+  
 </div>
+
+# Add New Like
+<div class="likes_container">
+  <%= form_with model: Like, url: user_post_likes_path(post_id: @post), method: :post, scope: :like do |form| %>
+    <div>
+      <%= form.submit "Like" %>
+    </div>
+  <% end %>
+</div>
+
+# Add New Comment
+
+<div class="comments_container">
+  <%= form_with model: Comment, url: user_post_comments_path(post_id: @post), method: :post, scope: :comment do |form| %>
+    <div>
+      <%= form.label :Comment %><br>
+      <%= form.text_area :text %>
+    </div>
+    <div>
+      <%= form.submit "Add Comment" %>
+    </div>
+  <% end %>
+  </div>
