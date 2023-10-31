@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
-  # current_user is a method that returns the currently logged in user
-  # Get First User from the database
-  # User.first
-  before_action :current_user
-
+  # current_user is a method that returns the First User from the database
+  # This is a temporary solution to the problem of authentication
+  # We will learn how to authenticate users later in the course
   def current_user
-    @current_user = User.first
+    @user = User.first
   end
 end
