@@ -116,6 +116,17 @@ body {
     padding-top: 5px;
   }
 
+  .likes_container {
+    // border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    // padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+
   .footer_space {
     margin-top: 20px;
   }
