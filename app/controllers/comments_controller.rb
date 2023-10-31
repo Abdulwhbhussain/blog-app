@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
-
   def create
     @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(user_id: @user, text: comment_params[:text])
 
-    if @comment.save
-      redirect_to user_post_path(@post.author, @post)
-    end
+    return unless @comment.save
+
+    redirect_to user_post_path(@post.author, @post)
   end
 
   private

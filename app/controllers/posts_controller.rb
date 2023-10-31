@@ -20,7 +20,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_posts_path(@user), notice: "Post was successfully created." }
+        format.html { redirect_to user_posts_path(@user), notice: 'Post was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity, locals: { user: @user, post: @post } }
       end
