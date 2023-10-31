@@ -4,8 +4,10 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @like = Like.new(post_id: @post.id, user_id: @user.id)
 
+    return unless @like.save
+
     respond_to do |format|
-      format.html { redirect_to request.referer } if @like.save
+      format.html { redirect_to user_post_path(@post.author, @post), notice: 'Like was successfully created.' }
     end
   end
 
