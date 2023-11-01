@@ -55,7 +55,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'capybara' # for system testing
-gem 'webdrivers' # for Browser testing
+  gem 'webdrivers' # for Browser testing
 end
 
 group :development do
