@@ -1,0 +1,13 @@
+
+<h1> Add New Comment </h1>
+
+<%= form_with model: [@user, @post, @comment] do |form| %>
+  <div>
+    <%= form.label :Comment %><br>
+    <%= form.text_area :text %>
+  </div>
+
+  <Button>
+    <%= form.submit "Add Comment" %>
+  </Button>
+<% end %>

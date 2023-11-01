@@ -1,0 +1,28 @@
+<div>
+<% if @users.empty? %> 
+  <div class="user_container">There are no users.</div>
+<% else %>
+  <% @users.each do |user| %>
+    <div>
+      <div class="user_container">
+        <div class="user_image">
+          <%= image_tag user.photo %>
+        </div>
+        <div class="user_content">
+        <div style="margin-bottom: 15px;">
+          <h1><%= user.name %></h1>
+          <div class="card-action">
+          <%= link_to "View Profile", user_path(user) %>
+          </div>
+        </div>
+        <div>
+        <p class="number_of_posts">Number of posts: <%= user.posts_counter %></p>
+        </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+
+<div class="footer_space"></div>
