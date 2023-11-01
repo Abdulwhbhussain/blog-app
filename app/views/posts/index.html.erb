@@ -29,6 +29,7 @@
   <div class="post_container">
     <div><%= link_to "Post  ##{index + 1}", user_post_path(post.author, post) %></div>
     <br>
+    <div style="margin-bottom: 5px; font-weight: bold;"><%= post.title %></div>
     <div><%= post.text %></div>
     <div class="comments_likes">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></div>
     </div>
