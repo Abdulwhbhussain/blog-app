@@ -54,6 +54,8 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'capybara' # for system testing
+gem 'webdrivers' # for Browser testing
 end
 
 group :development do
