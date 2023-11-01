@@ -37,9 +37,9 @@
   <% if post.recent_5_comments == [] %> 
     <p>There are no comments for this post.</p>
   <% else %>
-  <% post.recent_5_comments.each do |comment| %>
+  <% post.recent_5_comments.includes([:user]).each do |comment| %>
     <div class="comment_container">
-    <div><%= post.author.name %>: <%= comment.text %></div>
+    <div><%= comment.user.name %>: <%= comment.text %></div>
     </div>
   <% end %>
   </div>
