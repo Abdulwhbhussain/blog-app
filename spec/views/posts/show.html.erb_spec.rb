@@ -17,28 +17,28 @@ RSpec.describe 'posts/show.html.erb', type: :feature do
     it 'post title' do
       expect(page).to have_content(@post.title)
     end
-  
+
     it 'post author' do
       expect(page).to have_content(@post.author.name)
     end
-  
+
     it 'post comments counter' do
       expect(page).to have_content @post.comments_counter
     end
-  
+
     it 'post likes counter' do
       expect(page).to have_content @post.likes_counter
     end
-  
+
     it 'post text' do
       expect(page).to have_content(@post.text)
     end
-  
+
     it 'commmentators name' do
       expect(page).to have_content @comment.user.name
       expect(page).to have_content @comment2.user.name
     end
-  
+
     it 'commments text' do
       expect(page).to have_content @comment.text
       expect(page).to have_content @comment2.text

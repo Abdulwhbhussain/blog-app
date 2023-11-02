@@ -18,7 +18,6 @@ RSpec.describe 'users/show.html.erb', type: :feature do
   end
 
   context 'The Page Should contain' do
-
     it 'the user photo' do
       expect(page).to have_selector("img[src*='https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640']")
     end

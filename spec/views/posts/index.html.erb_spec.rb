@@ -21,42 +21,42 @@ RSpec.describe 'posts/index.html.erb', type: :feature do
     it 'user author picture' do
       expect(page).to have_selector("img[src*='#{@author.photo}']")
     end
-  
+
     it 'author name' do
       expect(page).to have_content(@author.name)
     end
-  
+
     it 'user posts_counter' do
       expect(page).to have_content @author.posts_counter
     end
-  
+
     it 'posts title' do
       expect(page).to have_content(@post.title)
       expect(page).to have_content(@post2.title)
       expect(page).to have_content(@post3.title)
     end
-  
+
     it 'posts text' do
       expect(page).to have_content(@post.text)
       expect(page).to have_content(@post2.text)
       expect(page).to have_content(@post3.text)
     end
-  
+
     it 'each post comments counter' do
       expect(page).to have_content @post.comments_counter
       expect(page).to have_content @post2.comments_counter
       expect(page).to have_content @post3.comments_counter
     end
-  
+
     it 'each post likes counter' do
       expect(page).to have_content @post.likes_counter
       expect(page).to have_content @post2.likes_counter
       expect(page).to have_content @post3.likes_counter
     end
-  
-    it 'should show button for pagination' do
-      expect(page).to have_content('Pagination')
-    end
+  end
+
+  it 'should show button for pagination' do
+    expect(page).to have_content('Pagination')
   end
 
   context 'The Page should redirects to' do
