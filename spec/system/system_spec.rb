@@ -1,3 +1,7 @@
+# Go to db/seeds.rb
+# To seed the database, Run rails db:seed RAILS_ENV=test
+# To run the test, run rspec spec/system/system_spec.rb
+
 # System Spec for Blog App
 require 'rails_helper'
 

@@ -51,10 +51,12 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  # gem 'capybara' # for system testing
+  gem 'capybara' # for system testing
   gem 'debug', platforms: %i[mri windows]
   gem 'rails-controller-testing'
   gem 'rspec-rails'
+  gem 'webdrivers', '~> 5.0', ">= 5.3.1", require: false # for Browser testing
+  gem 'racc', '~> 1.7', '>= 1.7.2' # for Browser testing
 end
 
 group :development do
@@ -70,7 +72,5 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers' # for Browser testing
+  gem 'selenium-webdriver', '~> 4.0', '< 4.11', require: false
 end
