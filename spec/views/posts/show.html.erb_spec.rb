@@ -13,33 +13,35 @@ RSpec.describe 'posts/show.html.erb', type: :feature do
     visit user_post_path(@author, @post)
   end
 
-  it 'should show post title' do
-    expect(page).to have_content(@post.title)
-  end
-
-  it 'should show post author' do
-    expect(page).to have_content(@post.author.name)
-  end
-
-  it 'should show post text' do
-    expect(page).to have_content(@post.text)
-  end
-
-  it 'should show post comments_counter' do
-    expect(page).to have_content @post.comments_counter
-  end
-
-  it 'should show post likes_counter' do
-    expect(page).to have_content @post.likes_counter
-  end
-
-  it 'should show commment text' do
-    expect(page).to have_content @comment.text
-    expect(page).to have_content @comment2.text
-  end
-
-  it 'should show commmentr name' do
-    expect(page).to have_content @comment.user.name
-    expect(page).to have_content @comment2.user.name
+  context 'The post page should show' do
+    it 'post title' do
+      expect(page).to have_content(@post.title)
+    end
+  
+    it 'post author' do
+      expect(page).to have_content(@post.author.name)
+    end
+  
+    it 'post comments counter' do
+      expect(page).to have_content @post.comments_counter
+    end
+  
+    it 'post likes counter' do
+      expect(page).to have_content @post.likes_counter
+    end
+  
+    it 'post text' do
+      expect(page).to have_content(@post.text)
+    end
+  
+    it 'commmentators name' do
+      expect(page).to have_content @comment.user.name
+      expect(page).to have_content @comment2.user.name
+    end
+  
+    it 'commments text' do
+      expect(page).to have_content @comment.text
+      expect(page).to have_content @comment2.text
+    end
   end
 end

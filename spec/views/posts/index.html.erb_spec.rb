@@ -17,49 +17,53 @@ RSpec.describe 'posts/index.html.erb', type: :feature do
     visit user_posts_path(@author)
   end
 
-  it 'should show user author picture' do
-    expect(page).to have_selector("img[src*='#{@author.photo}']")
+  context 'The posts page should show' do
+    it 'user author picture' do
+      expect(page).to have_selector("img[src*='#{@author.photo}']")
+    end
+  
+    it 'author name' do
+      expect(page).to have_content(@author.name)
+    end
+  
+    it 'user posts_counter' do
+      expect(page).to have_content @author.posts_counter
+    end
+  
+    it 'posts title' do
+      expect(page).to have_content(@post.title)
+      expect(page).to have_content(@post2.title)
+      expect(page).to have_content(@post3.title)
+    end
+  
+    it 'posts text' do
+      expect(page).to have_content(@post.text)
+      expect(page).to have_content(@post2.text)
+      expect(page).to have_content(@post3.text)
+    end
+  
+    it 'each post comments counter' do
+      expect(page).to have_content @post.comments_counter
+      expect(page).to have_content @post2.comments_counter
+      expect(page).to have_content @post3.comments_counter
+    end
+  
+    it 'each post likes counter' do
+      expect(page).to have_content @post.likes_counter
+      expect(page).to have_content @post2.likes_counter
+      expect(page).to have_content @post3.likes_counter
+    end
+  
+    it 'should show button for pagination' do
+      expect(page).to have_content('Pagination')
+    end
   end
 
-  it 'should show the author name' do
-    expect(page).to have_content(@author.name)
-  end
-
-  it 'should show user posts_counter' do
-    expect(page).to have_content @author.posts_counter
-  end
-
-  it 'should show posts title' do
-    expect(page).to have_content(@post.title)
-    expect(page).to have_content(@post2.title)
-    expect(page).to have_content(@post3.title)
-  end
-
-  it 'should show posts text' do
-    expect(page).to have_content(@post.text)
-    expect(page).to have_content(@post2.text)
-    expect(page).to have_content(@post3.text)
-  end
-
-  it 'should show each post comments_counter' do
-    expect(page).to have_content @post.comments_counter
-    expect(page).to have_content @post2.comments_counter
-    expect(page).to have_content @post3.comments_counter
-  end
-
-  it 'should show each post likes_counter' do
-    expect(page).to have_content @post.likes_counter
-    expect(page).to have_content @post2.likes_counter
-    expect(page).to have_content @post3.likes_counter
-  end
-
-  it 'should show button for pagination' do
-    expect(page).to have_content('Pagination')
-  end
-
-  it 'should redirect to specific post' do
-    link = find("a[href='#{user_post_path(@post.author, @post)}']")
-    link.click
-    expect(page).to have_current_path(user_post_path(@post.author, @post))
+  context 'The Page should redirects to' do
+    it 'specific post' do
+      link = find("a[href='#{user_post_path(@post.author, @post)}']")
+      link.click
+      expect(page).to have_current_path(user_post_path(@post.author, @post))
+    end
   end
 end
