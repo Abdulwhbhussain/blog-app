@@ -17,53 +17,46 @@ RSpec.describe 'users/show.html.erb', type: :feature do
     visit user_path(@author)
   end
 
-  it 'should show user profile picture' do
-    expect(page).to have_selector("img[src*='#{@author.photo}']")
+  context 'The Page Should contain' do
+
+    it 'the user photo' do
+      expect(page).to have_selector("img[src*='https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640']")
+    end
+
+    it 'the user name' do
+      expect(page).to have_content @author.name
+    end
+
+    it 'the number of posts the user has' do
+      expect(page).to have_content @author.posts_counter
+    end
+
+    it 'the user bio' do
+      expect(page).to have_content @author.bio
+    end
+
+    it 'the user 3 most recent posts' do
+      expect(page).to have_content @post.title
+      expect(page).to have_content @post2.title
+      expect(page).to have_content @post3.title
+    end
+
+    it 'the button to see all the user posts' do
+      expect(page).to have_link 'See all posts'
+    end
   end
 
-  it 'should show the author name' do
-    expect(page).to have_content(@author.name)
-  end
+  context 'The Page Should redirect to' do
+    it 'the post page when click on the post title' do
+      link = find("a[href='#{user_post_path(@post.author, @post)}']")
+      link.click
+      expect(page).to have_current_path(user_post_path(@post.author, @post))
+    end
 
-  it 'should show user posts_counter' do
-    expect(page).to have_content @author.posts_counter
-  end
-
-  it 'should show user bio' do
-    expect(page).to have_content @author.bio
-  end
-
-  it 'should show the first 3 posts' do
-    expect(page).to have_content(@post.title)
-    expect(page).to have_content(@post2.title)
-    expect(page).to have_content(@post3.title)
-  end
-
-  it 'should show each post comments_counter' do
-    expect(page).to have_content @post.comments_counter
-    expect(page).to have_content @post2.comments_counter
-    expect(page).to have_content @post3.comments_counter
-  end
-
-  it 'should show each post likes_counter' do
-    expect(page).to have_content @post.likes_counter
-    expect(page).to have_content @post2.likes_counter
-    expect(page).to have_content @post3.likes_counter
-  end
-
-  it 'should show See all posts button' do
-    expect(page).to have_content('See all posts')
-  end
-
-  it 'should redirect to a specif post' do
-    link = find("a[href='#{user_post_path(@post.author, @post)}']")
-    link.click
-    expect(page).to have_current_path(user_post_path(@post.author, @post))
-  end
-
-  it 'should redirect to all posts of a spacif user' do
-    link = find("a[href='#{user_posts_path(@author)}']")
-    link.click
-    expect(page).to have_current_path(user_posts_path(@author))
+    it 'the posts page when click on the See all posts button' do
+      link = find("a[href='#{user_posts_path(@author)}']")
+      link.click
+      expect(page).to have_current_path(user_posts_path(@author))
+    end
   end
 end

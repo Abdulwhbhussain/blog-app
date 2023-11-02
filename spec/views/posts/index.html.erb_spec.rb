@@ -57,7 +57,7 @@ RSpec.describe 'posts/index.html.erb', type: :feature do
     expect(page).to have_content('Pagination')
   end
 
-  it 'should redirect to specif post' do
+  it 'should redirect to specific post' do
     link = find("a[href='#{user_post_path(@post.author, @post)}']")
     link.click
     expect(page).to have_current_path(user_post_path(@post.author, @post))

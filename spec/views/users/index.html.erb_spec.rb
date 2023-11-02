@@ -12,24 +12,28 @@ RSpec.describe 'users/index.html.erb', type: :feature do
     visit users_path
   end
 
-  it 'should show users name' do
-    expect(page).to have_content @author.name
-    expect(page).to have_content @user.name
-  end
+  context 'The Page Should contain' do
+    it 'usernames of all users' do
+      expect(page).to have_content @author.name
+      expect(page).to have_content @user.name
+    end
 
-  it 'shows the profile picture of each user' do
-    expect(page).to have_selector("img[src*='#{@author.photo}']")
+    it 'photos of all users' do
+      expect(page).to have_selector("img[src*='#{@author.photo}']")
     expect(page).to have_selector("img[src*='#{@user.photo}']")
+    end
+
+    it 'The number of posts of each user' do
+      expect(page).to have_content @author.posts_counter
+      expect(page).to have_content @user.posts_counter
+    end
   end
 
-  it 'should show users posts_counter' do
-    expect(page).to have_content @author.posts_counter
-    expect(page).to have_content @user.posts_counter
-  end
-
-  it 'should redirects to that user page' do
-    link = find("a[href='#{user_path(@user)}']")
-    link.click
-    expect(page).to have_current_path(user_path(@user))
+  context 'The Page should redirect to' do
+    it 'the user show page' do
+      link = find("a[href='#{user_path(@user)}']")
+      link.click
+      expect(page).to have_current_path(user_path(@user))
+    end
   end
 end
