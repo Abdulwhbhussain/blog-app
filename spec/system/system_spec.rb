@@ -54,7 +54,7 @@ RSpec.describe 'Whole System Test', type: :system do
     it 'Shows the user bio' do
       visit user_path(User.first)
       sleep(5)
-      expect(page).to have_content 'A skilled carpenter with over 15 years of experience, specializing in custom furniture design and installation.'
+      expect(page).to have_content 'A skilled carpenter.'
     end
 
     it 'Shows the number of posts of that user' do
@@ -72,7 +72,7 @@ RSpec.describe 'Whole System Test', type: :system do
     it 'Shows the post text' do
       visit user_post_path(Post.first.author, Post.first)
       sleep(5)
-      expect(page).to have_content 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+      expect(page).to have_content 'Lorem Ipsum is simply dummy text.'
     end
 
     it 'Shows the post author' do

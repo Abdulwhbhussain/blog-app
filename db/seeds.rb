@@ -13,14 +13,14 @@
 # in the console or in the browser. This is also a good place to put data that you want to use in your tests.
 
 # users seeds
-first_user = User.create(name: 'Shahadat Hossain', photo: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640', bio: 'A skilled carpenter with over 15 years of experience, specializing in custom furniture design and installation.')
+first_user = User.create(name: 'Shahadat Hossain', photo: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640', bio: 'A skilled carpenter.')
 second_user = User.create(name: 'Rakibul Islam', photo: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?&fit=crop&w=640', bio: 'A licensed therapist with expertise in cognitive-behavioral therapy and trauma-informed care.')
 third_user = User.create(name: 'Monir Hossain', photo: 'https://images.unsplash.com/photo-1583692331507-fc0bd348695d?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.')
 fourth_user = User.create(name: 'Siful Islam', photo: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.')
 fifth_user = User.create(name: 'Sohidul Islam', photo: 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?&fit=crop&w=640', bio: 'An experienced marketing specialist with expertise in digital marketing, branding, and social media management.')
 
 # post seeds
-first_post = Post.create(author: first_user, title: 'First seed post', text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.')
+first_post = Post.create(author: first_user, title: 'First seed post', text: 'Lorem Ipsum is simply dummy text.')
 second_post = Post.create(author: first_user, title: 'Second seed post', text: 'The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.')
 third_post = Post.create(author: first_user, title: 'Third seed post', text: 'This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock.')
 fourth_post = Post.create(author: first_user, title: 'Fourth seed post', text: 'All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.')
