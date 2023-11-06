@@ -5,6 +5,5 @@ class ApplicationController < ActionController::Base
   # it will make available user data to all controllers
 
   def current_user
-    User.first
   end
 end
