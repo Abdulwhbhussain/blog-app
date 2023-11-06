@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe 'posts/show.html.erb', type: :feature do
   before(:each) do
     @author = User.create(name: 'Shahadat Hossain',
