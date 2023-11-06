@@ -4,6 +4,5 @@ class ApplicationController < ActionController::Base
   # We will learn how to authenticate users later in the course
   # it will make available user data to all controllers
 
-  def current_user
-  end
+  def current_user; end
 end
