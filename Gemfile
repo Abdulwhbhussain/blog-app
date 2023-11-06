@@ -74,3 +74,5 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'selenium-webdriver', '~> 4.0', '< 4.11', require: false
 end
+
+gem "devise", "~> 4.9"
