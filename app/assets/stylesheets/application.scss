@@ -127,6 +127,22 @@ body {
     padding-top: 5px;
   }
 
+  // username and password input fields Customization for the Devise gem in the center of the page
+  #username, #password, #submit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #username input, #password input, #submit input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    width: 100%;
+    height: 40px;
+  }
+
   .footer_space {
     margin-top: 20px;
   }
