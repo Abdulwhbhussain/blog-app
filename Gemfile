@@ -75,4 +75,4 @@ group :test do
   gem 'selenium-webdriver', '~> 4.0', '< 4.11', require: false
 end
 
-gem "devise", "~> 4.9"
+gem 'devise', '~> 4.9'
