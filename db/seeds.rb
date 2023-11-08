@@ -13,11 +13,11 @@
 # in the console or in the browser. This is also a good place to put data that you want to use in your tests.
 
 # users seeds
-first_user = User.create(name: 'Shahadat Hossain', photo: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640', bio: 'A skilled carpenter.')
-second_user = User.create(name: 'Rakibul Islam', photo: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?&fit=crop&w=640', bio: 'A licensed therapist with expertise in cognitive-behavioral therapy and trauma-informed care.')
-third_user = User.create(name: 'Monir Hossain', photo: 'https://images.unsplash.com/photo-1583692331507-fc0bd348695d?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.')
-fourth_user = User.create(name: 'Siful Islam', photo: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.')
-fifth_user = User.create(name: 'Sohidul Islam', photo: 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?&fit=crop&w=640', bio: 'An experienced marketing specialist with expertise in digital marketing, branding, and social media management.')
+first_user = User.create(name: 'Shahadat Hossain', photo: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?&fit=crop&w=640', bio: 'A skilled carpenter.', email: 'shahdat@gmail.com', password: '123456')
+second_user = User.create(name: 'Rakibul Islam', photo: 'https://images.unsplash.com/photo-1530268729831-4b0b9e170218?&fit=crop&w=640', bio: 'A licensed therapist with expertise in cognitive-behavioral therapy and trauma-informed care.', email: 'rakibul@gmail.com', password: '123456')
+third_user = User.create(name: 'Monir Hossain', photo: 'https://images.unsplash.com/photo-1583692331507-fc0bd348695d?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.', email: 'monir@gmail.com', password: '123456')
+fourth_user = User.create(name: 'Siful Islam', photo: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?&fit=crop&w=640', bio: 'A seasoned project manager with experience in managing complex projects across multiple industries.', email: 'siful@gmail.com', password: '123456')
+fifth_user = User.create(name: 'Sohidul Islam', photo: 'https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?&fit=crop&w=640', bio: 'An experienced marketing specialist with expertise in digital marketing, branding, and social media management.', email: 'sohidul@gmail.com', password: '123456')
 
 # post seeds
 first_post = Post.create(author: first_user, title: 'First seed post', text: 'Lorem Ipsum is simply dummy text.')
