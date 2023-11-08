@@ -171,6 +171,11 @@ For testing you can run:
 - Twitter: [@twitterhandle](https://twitter.com/AbdulWhbHussain)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdulwhbhussain)
 
+-  👤 **Suleiman Gacheru**
+
+- GitHub: [@hetrox8](https://github.com/hetrox8)
+- Twitter: [@suleimangacheru](https://twitter.com/suleimangacheru)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
