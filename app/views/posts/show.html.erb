@@ -1,4 +1,10 @@
 <div class="post_container">
+<% if @post.author == current_user || current_user.role == "admin" %>
+  <div class="delete-post-button">
+  <%= button_to "Delete Post", user_post_path(@post.author, @post), method: :delete %>
+  </div>
+  <%end%>
+
   <div><%= link_to "Post ##{1} by #{@post.author.name}", user_post_path(@post.author, @post) %></div>
   <div class="comments_likes">Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %></div>
   <br>
@@ -23,6 +29,12 @@
   <% @post.comments.each do |comment| %>
     <div class="comment_container">
     <div><%= comment.user.name %>: <%= comment.text %></div>
+    <!-- If you are current user or admin you can delete comment in your account only not of others -->
+    <% if comment.user == current_user || current_user.role == "admin" %>
+    <div class="delete-comment-button">
+    <%= button_to "Delete Comment", user_post_comment_path(comment.user, comment.post, comment), method: :delete %>
+    </div>
+    <%end%>
     </div>
   <% end %>
   </div>

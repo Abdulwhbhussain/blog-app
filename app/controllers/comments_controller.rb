@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to user_post_path(@comment.user, @comment.post)
+  end
+
   def new
     @user = current_user
     @post = Post.find(params[:post_id])
