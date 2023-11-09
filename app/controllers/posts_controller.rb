@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-      @post = Post.find(params[:id])
-      @post.destroy
-      redirect_to user_posts_path
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path
   end
 
   # use current_user method from application controller to create a new post
