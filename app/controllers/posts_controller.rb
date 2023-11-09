@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if current_user.role == "admin"
+    if current_user.role == 'admin'
       @post = Post.find(params[:id])
       author = @post.author
       @post.destroy
