@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @posts = Post.where(author_id: params[:user_id])
     @posts = @posts.order(created_at: :desc)
@@ -10,17 +11,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    if current_user.role == 'admin'
-      @post = Post.find(params[:id])
-      author = @post.author
-      @post.destroy
-      redirect_to user_posts_path(author)
-    else
-      @user = current_user
       @post = Post.find(params[:id])
       @post.destroy
-      redirect_to user_posts_path(@user)
-    end
+      redirect_to user_posts_path
   end
 
   # use current_user method from application controller to create a new post
