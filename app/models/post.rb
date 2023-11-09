@@ -9,12 +9,17 @@ class Post < ApplicationRecord
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   after_create :increment_no_of_posts
+  after_destroy :decrement_no_of_posts
 
   def recent_5_comments
     comments.order(created_at: :desc).limit(5)
   end
 
   private
+
+  def decrement_no_of_posts
+    author.decrement!(:posts_counter)
+  end
 
   def increment_no_of_posts
     author.increment!(:posts_counter)

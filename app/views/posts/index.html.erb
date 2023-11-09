@@ -1,23 +1,26 @@
 <div>
       <div class="user_container">
         <div class="user_image">
-          <%= image_tag @posts[0].author.photo %>
+          <%= image_tag @user.photo %>
         </div>
         <div class="user_content">
         <div style="margin-bottom: 15px;">
-          <h1><%= @posts[0].author.name %></h1>
+          <h1><%= @user.name %></h1>
         </div>
         <div>
-        <p class="number_of_posts">Number of posts: <%= @posts[0].author.posts_counter %></p>
+        <p class="number_of_posts">Number of posts: <%= @user.posts_counter %></p>
         </div>
         </div>
       </div>
     </div>
 <br>
 
+<!-- If you are current user you can add post in your account only not of others -->
+<% if current_user == @user %>
 <div class="new_post_container">
 <button><%= link_to "Add New Post", new_user_post_url %></button>
 </div>
+<% end %>
 
 <% if @posts.empty? %> 
   <div class="post_container">There are no posts by this user.</div>
@@ -27,6 +30,12 @@
   
 
   <div class="post_container">
+  <% if post.author == current_user || current_user.role == "admin" %>
+  <div class="delete-post-button">
+  <%= button_to "Delete Post", user_post_path(post.author, post), method: :delete %>
+  </div>
+  <%end%> 
+  
     <div><%= link_to "Post  ##{index + 1}", user_post_path(post.author, post) %></div>
     <br>
     <div style="margin-bottom: 5px; font-weight: bold;"><%= post.title %></div>
@@ -51,7 +60,7 @@
 <% end %>
 
 <div class="see_posts_container">
-<button><%= link_to "Pagination", user_post_url(@posts[0].author, @posts[0]) %></button>
+<button><%= link_to "Pagination", user_posts_url %></button>
 </div>
 
 <div class="footer_space"></div>

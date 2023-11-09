@@ -1,4 +1,17 @@
 class CommentsController < ApplicationController
+  def destroy
+    if current_user.role == 'admin'
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      redirect_to user_post_path(@comment.post.author, @comment.post)
+    else
+      @user = current_user
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      redirect_to user_post_path(@user, @comment.post)
+    end
+  end
+
   def new
     @user = current_user
     @post = Post.find(params[:post_id])

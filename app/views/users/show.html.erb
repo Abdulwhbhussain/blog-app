@@ -33,10 +33,9 @@
   <% end %>
 </div>
 <% end %>
-<% if @user.recent_3_posts.empty? == false %>
+
 <div class="see_posts_container">
 <button><%= link_to "See all posts", user_posts_path(@user) %></button>
 </div>
-<% end %>
 
 <div class="footer_space"></div>

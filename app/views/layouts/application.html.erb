@@ -13,6 +13,12 @@
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <!-- Show Logout Button If the current user is logged in and go to the root path -->
+  <div class="logout">
+  <% if user_signed_in? %>
+  <button class="logout-link-button" onclick="window.location.href='/users/sign_out'">Logout</button>
+  <% end %>
+  </div>
     <%= yield %>
   </body>
 </html>
