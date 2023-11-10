@@ -8,28 +8,25 @@ Rails.application.routes.draw do
 
   root to: "users#index"
 
+  # Routes for main resources
+
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
-      resources :comments, only: [:index, :new, :create, :show, :destroy]
+      resources :comments, only: [ :new, :create, :destroy]
       resources :likes, only: [:create]
     end
   end
 
-  # resources :posts, only: [:index, :show], defaults: { format: :json } do
-  #   resources :comments, only: [:index, :create, :show], defaults: { format: :json }
-  # end
-
-
-  # for Api calls to posts of a user
-  # namespace :api do
-  #   namespace :v1 do
-  #     resources :users, only: [:index, :show], defaults: { format: :json } do
-  #       resources :posts, only: [:index, :show], defaults: { format: :json } do
-  #         resources :comments, only: [:index, :create, :show], defaults: { format: :json }
-  #       end
-  #     end
-  #   end
-  # end
+  # API routes
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post "users/sign_up" => "users#register"
+      post "users/sign_in" => "users#login"
+      get "posts" => "posts#index"
+      get "comments" => "comments#index"
+      post "comments" => "comments#create"
+    end
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"

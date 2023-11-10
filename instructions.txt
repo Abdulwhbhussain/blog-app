@@ -205,4 +205,6 @@ bundle install
 
 # add the following code to the devise.rb file
 
+rails generate migration AddApiTokenToUsers api_token:string
+
 
