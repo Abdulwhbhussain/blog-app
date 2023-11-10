@@ -1,0 +1,210 @@
+rails new blog-app --database=postgresql
+
+cd blog-app
+
+Update or Change the database.yml file
+
+rails db:create
+
+rails generate migration CreateUsers
+
+rails generate migration CreatePosts
+
+rails generate migration CreateComments
+
+rails generate migration CreateLikes
+
+rails db:migrate
+
+rails generate model User name:string photo:string bio:text posts_counter:integer
+
+rails generate model Post author:references title:string text:text comments_counter:integer likes_counter:integer
+
+rails generate model Comment user:references post:references text:text
+
+rails generate model Like user:references post:references
+
+Paste the following code into the gem file: gem 'rspec-rails', group: [ :test, :development ]
+
+bundle install
+
+rails generate rspec:install
+
+rails generate rspec:model User name:string photo:string bio:text posts_counter:integer
+
+rails generate rspec:model Post author:references title:string text:text comments_counter:integer likes_counter:integer
+
+rails generate rspec:model Comment user:references post:references text:text
+
+rails generate rspec:model Like user:references post:references
+
+rails db:migrate RAILS_ENV=test
+
+rails generate controller UsersController
+
+rails generate controller PostsController
+
+rails generate controller CommentsController
+
+rails generate controller LikesController
+
+rails generate rspec:request Users
+
+rails generate rspec:request Posts
+
+rails generate rspec:request Comments
+
+rails generate rspec:request Likes
+
+resources :users, only: [:index, :show, :create, :update, :destroy]
+resources :posts, only: [:index, :show, :create, :update, :destroy]
+resources :comments, only: [:index, :show, :create, :update, :destroy]
+resources :likes, only: [:index, :show, :create, :update, :destroy]
+
+rails routes
+
+rails routes | grep users
+
+rails generate serializer User
+
+rails generate serializer Post
+
+rails generate serializer Comment
+
+rails generate serializer Like
+
+rails generate serializer User name photo bio posts_counter
+
+rails new blog-app --database=postgresql
+
+rails new bookmarkapi --api -T --database=postgresql
+
+rake db:create
+
+gem 'rspec-rails'
+
+gem 'rails-controller-testing'
+
+bundle install
+
+rails generate rspec:install
+
+rails generate controller health index
+
+rails generate scaffold Bookmark title:string url:string
+
+INSERT INTO users (name, photo, bio)
+VALUES ('John Doe', 'https://i.pravatar.cc/300?img=3', 'I am a person.');
+
+fourth_person = User.create(name: 'John Doe', photo: 'https://i.pravatar.cc/300?img=3', bio: 'I am a person.')
+
+fifth_person.posts.create(title: 'My first post', text: 'This is my first post.')
+
+first_post_of_fifth.likes.create(user: first_person, post: fifth_person.posts.first)
+
+stylelint --fix app/assets/stylesheets/application.scss
+
+INSERT INTO comments (user_id, post_id, text)
+VALUES (6, 6, 'Comment By Unknown.');
+
+rails db:seed
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+rspec spec
+
+rails db:migrate RAILS_ENV=test
+
+gem 'capybara'
+
+gem 'webdrivers'
+
+bundle install
+
+Capybara.default_driver = :selenium_chrome # rails helper
+
+rails db:seed RAILS_ENV=test
+
+UPDATE users SET email = 'a@gmail.com' WHERE id = 1;
+
+rails db:create
+
+rails db:migrate
+
+rails db:seed
+
+rails db:migrate RAILS_ENV=test
+
+rails db:drop
+
+rails db:reset
+
+rails db:setup
+
+rails db:reset RAILS_ENV=test
+
+rails generate migration AddDeviseConfirmableToUsers
+
+# add devise gem
+
+gem 'devise'
+
+bundle install
+
+rails generate devise:install
+
+rails generate devise User
+
+rails generate devise:views
+
+rails generate devise:controllers users
+
+rails generate devise:controllers users -c=confirmations
+
+# add before_action :authenticate_user! to application_controller.rb
+
+# add devise_for :users to routes.rb
+
+# add config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } to development.rb
+
+# add config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } to test.rb
+
+# create migrations for Devise
+
+# add devise :confirmable to User model
+
+# auto correct the scss file with stylelint
+
+npx stylelint "./app/assets/stylesheets/application.scss"
+
+rails generate migration add_role_column_to_users role:string
+
+rails db:migrate
+
+gem 'cancancan'
+
+bundle install
+
+rails generate cancan:ability
+
+# add the following code to the ability.rb file
+
+if user.role == 'admin'
+  can :manage, :all
+else
+  can :read, :all
+end
+
+gem 'devise-jwt'
+
+gem 'rack-cors'
+
+gem 'jsonapi-serializer'
+
+bundle install
+
+# add the following code to the devise.rb file
+
+rails generate migration AddApiTokenToUsers api_token:string
+
+

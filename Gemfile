@@ -77,6 +77,12 @@ end
 
 gem 'devise', '~> 4.9'
 
+gem 'devise-jwt'
+
+gem 'rack-cors'
+
+gem 'jsonapi-serializer'
+
 gem 'dotenv-rails'
 
 gem 'cancancan'

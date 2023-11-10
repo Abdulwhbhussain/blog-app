@@ -8,10 +8,23 @@ Rails.application.routes.draw do
 
   root to: "users#index"
 
+  # Routes for main resources
+
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show, :destroy] do
-      resources :comments, only: [:new, :create, :destroy]
+      resources :comments, only: [ :new, :create, :destroy]
       resources :likes, only: [:create]
+    end
+  end
+
+  # API routes
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post "users/sign_up" => "users#register"
+      post "users/sign_in" => "users#login"
+      get "posts" => "posts#index"
+      get "comments" => "comments#index"
+      post "comments" => "comments#create"
     end
   end
 

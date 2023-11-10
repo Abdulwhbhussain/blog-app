@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  protect_from_forgery prepend: true
+
+  before_action :authenticate_user!, unless: :api_request?
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # current_user is a method that returns the First User from the database
@@ -12,6 +15,10 @@ class ApplicationController < ActionController::Base
   # end
 
   protected
+
+  def api_request?
+    request.original_url.include?('api')
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name photo bio])
