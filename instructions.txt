@@ -189,3 +189,20 @@ rails generate cancan:ability
 
 # add the following code to the ability.rb file
 
+if user.role == 'admin'
+  can :manage, :all
+else
+  can :read, :all
+end
+
+gem 'devise-jwt'
+
+gem 'rack-cors'
+
+gem 'jsonapi-serializer'
+
+bundle install
+
+# add the following code to the devise.rb file
+
+

@@ -15,6 +15,22 @@ Rails.application.routes.draw do
     end
   end
 
+  # resources :posts, only: [:index, :show], defaults: { format: :json } do
+  #   resources :comments, only: [:index, :create, :show], defaults: { format: :json }
+  # end
+
+
+  # for Api calls to posts of a user
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :users, only: [:index, :show], defaults: { format: :json } do
+  #       resources :posts, only: [:index, :show], defaults: { format: :json } do
+  #         resources :comments, only: [:index, :create, :show], defaults: { format: :json }
+  #       end
+  #     end
+  #   end
+  # end
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
