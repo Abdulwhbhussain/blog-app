@@ -1,7 +1,4 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
-
   respond_to do |format|
     format.html { redirect_to root_path }
 
