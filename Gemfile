@@ -86,3 +86,5 @@ gem 'jsonapi-serializer'
 gem 'dotenv-rails'
 
 gem 'cancancan'
+
+gem 'rswag'
