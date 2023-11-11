@@ -207,4 +207,22 @@ bundle install
 
 rails generate migration AddApiTokenToUsers api_token:string
 
+# JSON object to register a user
+
+{
+  "name": "John Doe",
+  "photo": "https://i.pravatar.cc/300?img=3",
+  "bio": "I am a person.",
+  "email": "johnnn@gmail.com",
+  "password": "12345678",
+  "password_confirmation": "12345678"
+}
+
+gem 'rswag'
+
+bundle install
+
+rails g rswag:install
+
+rails generate 
 
